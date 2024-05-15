@@ -37,7 +37,7 @@ export const SearchPage = () => {
           <h4>Searching</h4>
           <hr />
 
-          <form onSubmit={onSearchSubmit}>
+          <form aria-label="form" onSubmit={onSearchSubmit}>
             <input
               type="text"
               placeholder="Search a hero"
@@ -55,12 +55,23 @@ export const SearchPage = () => {
           <h4>Results</h4>
           <hr />
 
-          <div className="alert alert-primary" style={{display: showSearch ? '' : 'none'}}>Search a hero</div>
-          <div className="alert alert-danger" style={{display: showError ? '' : 'none'}}>No hero with <b>{q}</b></div>
-          
+          <div
+            aria-label="search-hero"
+            className="alert alert-primary"
+            style={{ display: showSearch ? '' : 'none' }}
+          >
+            Search a hero</div>
+          <div
+            aria-label="no-hero"
+            className="alert alert-danger"
+            style={{ display: showError ? '' : 'none' }}
+          >
+            No hero with <b>{q}</b>
+          </div>
+
           {
             heroes.map(hero => (
-              <HeroCard key={hero.id} hero={hero}/> 
+              <HeroCard key={hero.id} hero={hero} />
             ))
           }
 
